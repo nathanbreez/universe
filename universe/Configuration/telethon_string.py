@@ -6,13 +6,23 @@
 # PLease read the GNU Affero General Public License in;
 # < https://www.github.com/unknownkz/universe/main/LICENSE/ >
 
+from sys import exit
+from pathlib import Path
 from os import getenv as then_get
 from telethon.sessions import StringSession
-from telethon.sync import TelegramClient
 from dotenv import find_dotenv, load_dotenv
+from telethon.sync import TelegramClient
 from telethon.errors import PhoneCodeInvalidError, SessionPasswordNeededError, FloodError
 
 load_dotenv(find_dotenv("string.env"))
+
+StringCheck: Path = Path(__file__).parent.parent
+
+dirs = ["string.env"]
+for _ in dirs:
+    if not (StringCheck / _).exists:
+        print("| [WARNING] | string.env not found !!")
+        exit(1)
 
 
 desc = """
@@ -34,17 +44,18 @@ print("")
 print("""Maintainer : @xelyourslurred <unknownkz@outlook.co.id>""")
 print("")
 print("")
-Api_ID = int(then_get("Api_ID"))
-Api_Hash = str(then_get("Api_Hash"))
-MobilePhoneNumber = then_get("MobilePhoneNumber")
+
+api_id = int(then_get("Api_ID"))
+api_hash = str(then_get("Api_Hash"))
+phone_number = then_get("MobilePhoneNumber")
 
 FlyMeToTheMoon = True
 
 
 while FlyMeToTheMoon:
     try:
-        with TelegramClient(StringSession(), api_id=Api_ID, api_hash=Api_Hash).start(
-            phone=MobilePhoneNumber
+        with TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash).start(
+            phone=phone_number
         ) as StartUniverse:
             StartUniverse.send_code_request(phone=MobilePhoneNumber)
             print("")

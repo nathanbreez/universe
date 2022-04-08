@@ -18,7 +18,7 @@ from . import Rooters
 UL = getLogger(__file__)
 
 
-async def soaring() -> None:
+async def connected() -> None:
     """Bug ? 😏"""
     try:
         await univ.connect()
@@ -42,4 +42,4 @@ def outer_dimensions():
 
 async def base_core() -> None:
     """Bug ? 😏"""
-    await soaring()
+    await connected()

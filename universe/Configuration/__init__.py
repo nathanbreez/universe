@@ -6,4 +6,19 @@
 # PLease read the GNU Affero General Public License in;
 # < https://www.github.com/unknownkz/universe/main/LICENSE/ >
 
-from .configuration import UniverseConfiguration as MultiVerse
+from sys import exit
+from pathlib import Path
+
+Checker: Path = Path(__file__).parent.parent
+
+dirs = ["configuration.py"]
+for _ in dirs:
+    if not (Checker / _ ).exists:
+        print("| [WARNING] | configuration.py not found !!")
+        exit(1)
+
+try:
+    from .configuration import UniverseConfiguration as MultiVerse
+
+except ImportError:
+    exit(1)

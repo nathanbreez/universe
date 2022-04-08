@@ -73,7 +73,7 @@ async def _(incident):
         kenz = await incident.reply("Posting...")
         the_times = datetime.now(tz).isoformat("_", "seconds")
         type_of_file = attributes_media(rply.media)
-        files_down = await univ.download_media(rply, "downloads")
+        files_down = await univ.download_media(rply, "cache")
 
         if type_of_file == "sticker animated" and files_down.endswith(".tgs"):
             return await etd(incident, "Animated stickers not supported.")

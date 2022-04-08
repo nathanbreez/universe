@@ -135,14 +135,13 @@ alcyoneus
 dev-requirements.txt
 run-universe.py
 universe-dev.cfg
-universe.env
 
 # user-session (Safety)
 *.session
 
 # user-config-env
-configuration.py
 string.env
+configuration.py
 
 # output
 MessageOutput.txt
@@ -155,5 +154,5 @@ MessageOutput.txt
 *.webp
 *.part
 
-# downloads / cache
-downloads
+# cache (after downloads, upload.py)
+cache

@@ -58,9 +58,6 @@ async def _(incident):
         except BaseException as excp:
             await incident.edit(str(excp))
 
-        except BaseException as excp:
-            await incident.edit(str(excp))
-
     else:
         await incident.reply(vcg_example)
 

@@ -10,7 +10,7 @@ from time import sleep
 
 from .. import univ
 from ..Configuration import MultiVerse
-from ..EquipmentTools import deleted, eor
+from ..EquipmentTools import deleted
 from ..UniverseLogger import UniverseLogger as UL
 
 category = "admins"
@@ -36,7 +36,7 @@ async def _(incident):
     if cleaning == "-clean":
         chats = await incident.get_chat()
         if not chats.admin_rights and not chats.creator:
-            await incident.edit("You aren't an admin.")
+            await incident.reply("You aren't an admin.")
             return False
 
     else:
@@ -47,7 +47,7 @@ async def _(incident):
     kicked = 0
     failed = 0
 
-    searching = await eor(incident, "Clean-up...")
+    searching = await incident.reply("Clean-up...")
     async for gets in incident.client.iter_participants(incident.chat_id):
         read += 1
 

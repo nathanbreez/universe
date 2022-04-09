@@ -20,7 +20,7 @@ StringCheck: Path = Path(__file__).parent.parent
 
 dirs = ["string.env"]
 for _ in dirs:
-    if not (StringCheck / _).exists:
+    if not (StringCheck / _).exists():
         print("| [WARNING] | string.env not found !!")
         exit(1)
 

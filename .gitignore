@@ -156,3 +156,6 @@ MessageOutput.txt
 
 # cache (after downloads, upload.py)
 cache
+
+# carbon
+*.png

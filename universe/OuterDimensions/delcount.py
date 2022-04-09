@@ -9,7 +9,6 @@
 from time import sleep
 
 from .. import univ
-from ..Configuration import MultiVerse
 from ..EquipmentTools import deleted
 from ..UniverseLogger import UniverseLogger as UL
 
@@ -19,12 +18,10 @@ from telethon.tl.types import ChatBannedRights
 
 category = "admins"
 
-p = MultiVerse.Trigger
 
-
-async def remove_users(chat_id, gets):
+async def remove_users(byt1, byt2):
     try:
-        await univ.kick_participant(chat_id, gets)
+        await univ.kick_participant(byt1, byt2)
         return True, None
     except Exception as excp:
         return False, str(excp)
@@ -56,8 +53,10 @@ async def _(incident):
                 amount_user += 1
                 sleep(1)
                 if amount_user >= 0:
+                    byt1 = incident.chat_id
+                    byt2 = gets.id
                     try:
-                        await remove_users(incident.chat_id, gets.id)
+                        await remove_users(byt1, byt2)
                         sleep(5)
                         kicked += 1
                         failed += 1
@@ -67,7 +66,7 @@ async def _(incident):
                     await univ(
                         EditBannedRequest(
                             incident.chat_id,
-                            gets.id,
+                            byt2,
                             ChatBannedRights(
                                 until_date=None,
                                 send_messages=None,

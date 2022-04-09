@@ -6,15 +6,18 @@
 # PLease read the GNU Affero General Public License in;
 # < https://www.github.com/unknownkz/universe/main/LICENSE/ >
 
+import rsa
+import packaging
 from platform import python_version
 from datetime import datetime
 from time import time as t
 from telethon import __version__
+from py._version import version
 
-from .. import univ, start_time
+from .. import univ, start_time, __version, __license
 from ..Configuration import MultiVerse
 from ..EquipmentTools import deleted, tf
-from ..Ground import UniverseVersion
+from ..UniverseLogger import tz
 
 category = "core"
 
@@ -25,15 +28,22 @@ category = "core"
 )
 async def _(incident):
     my_uptime = tf((t() - start_time) * 1000)
+    time_stamp = datetime.now(tz).strftime("%I:%M:%S %p UTC%z")
     text_active = f"""
 __“We are connected on the inside.”__
-
-   › `Uptime: {my_uptime}`
-   › `Python: {str(python_version())}`
-   › `Telethon: {__version__}`
-   › `Version: {UniverseVersion}`
-
-[Repository](https://github.com/unknownkz/universe) // [Maintainer](https://t.me/xelyourslurred) // [Support](https://t.me/kastaot)
+-----
+`[]`  › `Uptime: {my_uptime}`
+`[]`  › `Py: {version}`
+`[]`  › `RSA: {rsa.__version__}`
+`[]`  › `Python: {str(python_version())}`
+`[]`  › `Packaging: {packaging.__version__}`
+`[]`  › `Telethon: {__version__}`
+`[]`  › `Version: {__version}`
+`[]`  › `License:` [{str(__license)}](https://opensource.org/licenses/GPL-3.0)
+-----
+[Repository](https://github.com/unknownkz/universe) // [Author](https://t.me/xelyourslurred) // [Support](https://t.me/kastaot)
+-----
+**{time_stamp} {MultiVerse.TZ}**
 """
     await deleted(incident)
     await univ.send_file(incident.chat_id, file=MultiVerse.Info_Active, caption=text_active)

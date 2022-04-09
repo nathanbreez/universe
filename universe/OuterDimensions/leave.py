@@ -12,7 +12,6 @@ from telethon.tl.functions.channels import LeaveChannelRequest as leave
 
 from .. import univ
 
-
 category = "service"
 
 
@@ -22,7 +21,7 @@ category = "service"
     groups_only=True,
 )
 async def _(incident):
-   with suppress(BaseException):
-       await incident.delete()
-       sleep(0.9)
-       await univ(leave(incident.chat_id))
+    with suppress(BaseException):
+        await incident.delete()
+        sleep(0.9)
+        await univ(leave(incident.chat_id))

@@ -16,6 +16,9 @@ from .Ground.another import univ
 start_time = time()
 
 
+__version = "Infinity"
+__license = "GNU GPL-3.0 License"
+
 if platform.startswith("linux") and maxsize == 2 ** 63 - 1:
     platform = "linux"
     architecture = "64-bit"

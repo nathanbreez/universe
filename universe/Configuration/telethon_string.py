@@ -18,7 +18,7 @@ load_dotenv(find_dotenv("string.env"))
 
 StringCheck: Path = Path(__file__).parent.parent
 
-dirs = ["string.env"]
+dirs = ["/root/universe/universe/Configuration/string.env"]
 for _ in dirs:
     if not (StringCheck / _).exists():
         print("| [WARNING] | string.env not found !!")
@@ -57,7 +57,7 @@ while FlyMeToTheMoon:
         with TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash).start(
             phone=phone_number
         ) as StartUniverse:
-            StartUniverse.send_code_request(phone=MobilePhoneNumber)
+            StartUniverse.send_code_request(phone=phone_number)
             print("")
             galaxy = StartUniverse.session.save()
             messages_temp = desc.format(galaxy)

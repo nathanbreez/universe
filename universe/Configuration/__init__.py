@@ -11,7 +11,7 @@ from pathlib import Path
 
 Checker: Path = Path(__file__).parent.parent
 
-dirs = ["configuration.py"]
+dirs = ["/root/universe/universe/Configuration/configuration.py"]
 for _ in dirs:
     if not (Checker / _).exists():
         print("| [WARNING] | configuration.py not found !!")

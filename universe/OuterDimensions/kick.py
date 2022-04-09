@@ -15,7 +15,7 @@ category = "admins"
 
 @univ.universe_cloud(
     pattern="kicked(?: |$)(-retards)?(?: |$)(.*)",
-    command=("kicked -retards", category),
+    command=("kicked -retards <reply>", category),
     groups_only=True,
 )
 async def _(incident):

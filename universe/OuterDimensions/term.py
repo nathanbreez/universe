@@ -50,7 +50,7 @@ Run › `{u}term -run echo "Z2l0IGZldGNoIG9yaWdpbiBtYWluCg==" | base64 -d`
 async def _(incident):
     point = incident.pattern_match.group(1)
     commander = incident.pattern_match.group(2)
-    options = split(",!?", commander)
+    options = split("√π÷×¶∆•!?", commander) # <- Filter text
     if len(options) <= 0:
         return False
 

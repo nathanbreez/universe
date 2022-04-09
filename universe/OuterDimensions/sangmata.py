@@ -12,10 +12,10 @@ from asyncio.exceptions import TimeoutError as AsyncTimeout
 from telethon.errors import YouBlockedUserError
 from telethon.tl.functions.contacts import UnblockRequest
 from contextlib import suppress
-from io import StringIO
+from io import StringIO, BytesIO
 
 from .. import univ, Rooters
-from ..EquipmentTools import giu
+from ..EquipmentTools import giu, mtt
 from ..Ground import Rotation
 
 category = "service"
@@ -37,31 +37,38 @@ async def sg_(sangmata_list):
 
 async def __outer(folk, mkz, kz):
     with suppress(BaseException):
-        arc = folk
-        language = "auto"
-        options = CarbonOptions(code=arc, language=language)
-        cb = Carbon()
-        image = Rotation.run_until_complete(cb.generate(options))
-        Rotation.run_until_complete(image.save("sangmata"))
-        fg = "sangmata.png"
-        await univ.send_file(
-            mkz,
-            file=fg,
-            reply_to=kz,
-            force_document=True,
-            silent=True,
-        )
-        (Rooters / fg).unlink(missing_ok=True)
+        folk = mtt(folk)
+        with BytesIO(folk.encode("utf-8")) as major:
+            major.name = "convert.txt"
+            maka = major.read()
+            with StringIO(maka.decode("utf-8")) as conv:
+                majority = conv.read()
+                language = "auto"
+                options = CarbonOptions(code=majority, language=language)
+                cb = Carbon()
+                image = Rotation.run_until_complete(cb.generate(options))
+                Rotation.run_until_complete(image.save("sangmata"))
+                fg = "sangmata.png"
+                await univ.send_file(
+                    mkz,
+                    file=fg,
+                    reply_to=kz,
+                    force_document=True,
+                    silent=True,
+                )
+
+            (Rooters / fg).unlink(missing_ok=True)
+
+        (Rooters / "convert.txt").unlink(missing_ok=True)
 
 
 @univ.universe_cloud(
     pattern=r"csang(-u)?(?:\s|$)([\s\S]*)",
     command=("csang|-u <reply/id/username>", category),
 )
-async def _cs(incident):
+async def _(incident):
     point = incident.pattern_match.group(1)
     mkz = incident.chat_id
-    messg = None
     COSMIC = True
     resp = []
     await incident.delete()
@@ -98,11 +105,10 @@ async def _cs(incident):
 
     else:
         nam, usrnm = await sg_(resp)
-        messg = None
         check = usrnm if point == "-u" else nam
         for folk in check:
-            if messg:
-                await univ.send_message("`Empety`")
+            if None:
+                await __outer(folk, mkz, kz)
             else:
                 await __outer(folk, mkz, kz)
 
@@ -111,10 +117,9 @@ async def _cs(incident):
     pattern=r"sang(-u)?(?:\s|$)([\s\S]*)",
     command=("sang|-u <reply/id/username>", category),
 )
-async def _s(incident):
+async def _(incident):
     point = incident.pattern_match.group(1)
     mkz = incident.chat_id
-    messg = None
     COSMIC = True
     resp = []
     await incident.delete()
@@ -151,10 +156,9 @@ async def _s(incident):
 
     else:
         nam, usrnm = await sg_(resp)
-        messg = None
         check = usrnm if point == "-u" else nam
         for folk in check:
-            if messg:
-                await univ.send_message(mkz, folk, silent=True, reply_to=kz, parse_mode="html")
+            if None:
+                await kz.reply(folk, silent=True, parse_mode="html")
             else:
                 await kz.reply(folk, silent=True, parse_mode="html")

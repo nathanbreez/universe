@@ -66,6 +66,6 @@ for _ in dirs:
     if not (Rooters / _).exists():
         (Rooters / _).mkdir(parents=True, exist_ok=True)
     else:
-        for f in (Rooters / _).rglob("."):
+        for f in (Rooters / _).rglob("*.*"):
             if f.exists():
                 f.unlink(missing_ok=True)

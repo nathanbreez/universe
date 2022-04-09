@@ -28,7 +28,7 @@ category = "tools"
 async def _(incident):
     point = incident.pattern_match.group(1)
     options = incident.pattern_match.group(2)
-    exhibition = split(",}{@", options)
+    exhibition = split(",}{@√π÷×¶∆•", options) # <- Filter text
 
     if point != "-audio" and not exhibition:
         return False

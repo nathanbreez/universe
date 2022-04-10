@@ -8,6 +8,7 @@
 
 import rsa
 import packaging
+from textwrap import indent
 from platform import python_version
 from datetime import datetime
 from time import time as t
@@ -45,5 +46,6 @@ __“We are connected on the inside.”__
 -----
 **{time_stamp} {MultiVerse.TZ}**
 """
+    wrp = indent(text_active, " ", lambda line: True)
     await deleted(incident)
-    await univ.send_file(incident.chat_id, file=MultiVerse.Info_Active, caption=text_active)
+    await univ.send_file(incident.chat_id, file=MultiVerse.Info_Active, caption=wrp)

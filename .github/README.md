@@ -40,8 +40,14 @@ python3 -m clear-cache
 # to deactivate environment
 source env/bin/deactivate
 
-# disconnect ur bot
-press CTRL + C
+# suspend (send SIGTSTP to) current process
+press CTRL + Z and Acquire wakelock
+# don't exit termux or close the sessions
+# take it easy the bot can still run.
+# unless your network disappears, the bot will disconnect.
+
+# disconnect your bot
+Turn off Data (Network) or exit Termux
 ```
 
 #### Problems Installation

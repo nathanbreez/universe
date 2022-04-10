@@ -73,5 +73,7 @@ if __name__ == "__main__":
             )
         )
         Rotation.close()
+
+        raise (SystemExit(main(), pushkov(), whatever()))
     except SystemExit:
         pass

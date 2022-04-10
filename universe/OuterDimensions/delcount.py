@@ -7,14 +7,13 @@
 # < https://www.github.com/unknownkz/universe/main/LICENSE/ >
 
 from time import sleep
+from telethon.errors import UserAdminInvalidError
+from telethon.tl.functions.channels import EditBannedRequest
+from telethon.tl.types import ChatBannedRights
 
 from .. import univ
 from ..EquipmentTools import deleted
 from ..UniverseLogger import UniverseLogger as UL
-
-from telethon.errors import UserAdminInvalidError
-from telethon.tl.functions.channels import EditBannedRequest
-from telethon.tl.types import ChatBannedRights
 
 category = "admins"
 
@@ -93,7 +92,7 @@ async def _(incident):
 **Information :**
 
 `The number of deleted accounts users exists {amount_user},
-Kick {kicked} to {members} members.
+Kick {kicked} to {read} members.
 Failed {failed} account, coz user is admin.
 I didn't get permission.`
 """

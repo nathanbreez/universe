@@ -9,6 +9,7 @@
 from sys import platform, maxsize, version_info, exit
 from time import time
 from pathlib import Path
+from platform import system, machine
 
 from .UniverseLogger import UniverseLogger as UL
 from .Ground.another import univ
@@ -20,48 +21,33 @@ __version = "Infinity"
 __license = "GNU GPL-3.0 License"
 
 if platform.startswith("linux") and maxsize == 2 ** 63 - 1:
-    platform = "Linux"
-    architecture = "aarch64"
+    platform = system()
+    machine = machine()
     UL.info(
         "You're running universe on the system {} {}".format(
-            platform,
-            architecture,
+            str(platform),
+            str(machine),
         )
     )
 else:
-    platform = "linux"
-    architecture = "aarch64"
+    platform = system()
+    architecture = "64-bit"
     UL.error(
-        "You've to use {} {} system first!".format(platform, architecture)
+        "You've to use {} {} system first!".format(str(platform), architecture)
     )
     exit(1)
 
 
 if (
-    version_info.major >= 3
-    or version_info.minor >= 10
-    or version_info.micro >= 0
+    version_info.major == 3
+    and version_info.minor >= 9
+    and version_info.micro >= 0
 ):
     major = version_info.major
     minor = version_info.minor
     micro = version_info.micro
     UL.info(
         "You're running universe on the python {}.{}.{}".format(
-            str(round(major)),
-            str(round(minor)),
-            str(round(micro)),
-        )
-    )
-elif (
-    version_info.major >= 3
-    or version_info.minor >= 9
-    or version_info.macro >= 0
-):
-    major = version_info().major
-    minor = version_info().minor
-    micro = version_info().micro
-    UL.info(
-        "You're running universe on the python {}.{}.x".format(
             str(round(major)),
             str(round(minor)),
             str(round(micro)),

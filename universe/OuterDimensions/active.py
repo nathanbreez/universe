@@ -42,7 +42,7 @@ __“We are connected on the inside.”__
 `[]`  › `Version: {__version}`
 `[]`  › `License:` [{str(__license)}](https://opensource.org/licenses/GPL-3.0)
 -----
-[Repository](https://github.com/unknownkz/universe) // [Author](https://t.me/xelyourslurred) // [Support](https://t.me/kastaot)
+[Repository](https://github.com/unknownkz/universe) // [Author](https://t.me/joinchat/ML1yGH-is_5jYzY1) // [Support](https://t.me/joinchat/izrPKVSUGowwY2Zl)
 -----
 **{time_stamp} {MultiVerse.TZ}**
 """

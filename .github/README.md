@@ -5,6 +5,10 @@
 
 ---
 
+#### Required
+* Platform: ```Linux 64-bit```
+* Program: ```Python >= 3.9.x```
+
 #### Deployments
 
 [![run](https://telegra.ph/file/cfea6515c7fce79d09a3d.jpg)](https://telegra.ph/file/cfea6515c7fce79d09a3d.jpg)

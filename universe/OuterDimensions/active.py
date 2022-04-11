@@ -48,4 +48,6 @@ __“We are connected on the inside.”__
 """
     wrp = indent(text_active, " ", lambda line: True)
     await deleted(incident)
-    await univ.send_file(incident.chat_id, file=MultiVerse.Info_Active, caption=wrp)
+    await univ.send_file(
+        incident.chat_id, file=MultiVerse.Info_Active, caption=wrp
+    )

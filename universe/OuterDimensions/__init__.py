@@ -8,7 +8,11 @@
 
 from ..UniverseLogger import UniverseLogger as UL
 from ..Configuration import MultiVerse
-from ..ClassFundamental import Information_Group, Information_Command, Information_OuterDimensions
+from ..ClassFundamental import (
+    Information_Group,
+    Information_Command,
+    Information_OuterDimensions,
+)
 from ..EquipmentTools import deleted
 
 _emoticon_ = {"admins": "👤", "tools": "🛠️", "service": "🔰", "core": "💽"}
@@ -57,7 +61,9 @@ async def information_module(integritas, incident, point):
     try:
         эжд = Information_OuterDimensions[integritas]
     except KeyError:
-        юдщблш = await information_command(integritas, incident, dimensions=True)
+        юдщблш = await information_command(
+            integritas, incident, dimensions=True
+        )
         return юдщблш
     except BaseException:
         await deleted(incident)

@@ -76,7 +76,9 @@ async def _(incident):
     sleep(5)
     userid, _ = await giu(incident, 2)
     if not userid:
-        await univ.send_message(mkz, "Please re-check the username/id.", reply_to=kz, silent=True)
+        await univ.send_message(
+            mkz, "Please re-check the username/id.", reply_to=kz, silent=True
+        )
         await kz.delete()
         return False
 
@@ -98,10 +100,14 @@ async def _(incident):
         await univ.send_read_acknowledge(conver.chat_id)
 
     if not resp:
-        await univ.send_message(mkz, "`Can't fetch results.`", reply_to=kz, silent=True)
+        await univ.send_message(
+            mkz, "`Can't fetch results.`", reply_to=kz, silent=True
+        )
 
     elif "No records found" in resp:
-        await univ.send_message(mkz, "No records found", reply_to=kz, silent=True)
+        await univ.send_message(
+            mkz, "No records found", reply_to=kz, silent=True
+        )
 
     else:
         nam, usrnm = await sg_(resp)
@@ -127,7 +133,9 @@ async def _(incident):
     sleep(5)
     userid, _ = await giu(incident, 2)
     if not userid:
-        await univ.send_message(mkz, "Please re-check the username/id.", reply_to=kz, silent=True)
+        await univ.send_message(
+            mkz, "Please re-check the username/id.", reply_to=kz, silent=True
+        )
         await kz.delete()
         return False
 
@@ -149,10 +157,14 @@ async def _(incident):
         await univ.send_read_acknowledge(conver.chat_id)
 
     if not resp:
-        await univ.send_message(mkz, "`Can't fetch results.`", reply_to=kz, silent=True)
+        await univ.send_message(
+            mkz, "`Can't fetch results.`", reply_to=kz, silent=True
+        )
 
     elif "No records found" in resp:
-        await univ.send_message(mkz, "No records found", reply_to=kz, silent=True)
+        await univ.send_message(
+            mkz, "No records found", reply_to=kz, silent=True
+        )
 
     else:
         nam, usrnm = await sg_(resp)

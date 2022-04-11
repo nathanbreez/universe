@@ -22,7 +22,9 @@ async def connected() -> None:
     """Bug ? 😏"""
     try:
         await univ.connect()
-        univ.session.set_dc(MultiVerse.DC, f"{MultiVerse.MProtoServer}", MultiVerse.Port)
+        univ.session.set_dc(
+            MultiVerse.DC, f"{MultiVerse.MProtoServer}", MultiVerse.Port
+        )
         await univ(JoinChannelRequest(channel="@kastaot"))
         UL.info("✅ Success, you are logged in.")
     except (NetworkMigrateError, RPCError) as excp:

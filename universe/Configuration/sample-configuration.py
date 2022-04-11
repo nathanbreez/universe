@@ -33,7 +33,9 @@ class UniverseConfiguration:
     ### File for Active / Alive
     # File Support : .mp4 | .jpg ! .jpeg | .png
     # Recommended from telegra.ph
-    Info_Active = then_get("Info_Active", "https://telegra.ph/file/8271c781a36ccff1ee4aa.mp4")
+    Info_Active = then_get(
+        "Info_Active", "https://telegra.ph/file/8271c781a36ccff1ee4aa.mp4"
+    )
 
     ### Command
     # Your controller. this is the same as the command prompt.

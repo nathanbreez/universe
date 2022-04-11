@@ -7,4 +7,9 @@
 # < https://www.github.com/unknownkz/universe/main/LICENSE/ >
 
 from .primary import StartUniverse
-from .globals import Reloaded_Command, Information_OuterDimensions, Information_Group, Information_Command
+from .globals import (
+    Reloaded_Command,
+    Information_OuterDimensions,
+    Information_Group,
+    Information_Command,
+)

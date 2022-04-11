@@ -32,7 +32,9 @@ async def _(incident):
                 name = "@" + replied.forward.sender.username
             else:
                 name = "*" + replied.forward.sender.first_name + "*"
-        await incident.reply(f"**Name:** {name} \n**User ID:** `{user_id}` \n**Chat ID:** `{str(incident.chat_id)}`")
+        await incident.reply(
+            f"**Name:** {name} \n**User ID:** `{user_id}` \n**Chat ID:** `{str(incident.chat_id)}`"
+        )
 
     else:
         await incident.reply(f"**Chat ID:** `{str(incident.chat_id)}`")

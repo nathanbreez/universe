@@ -8,7 +8,10 @@
 
 from telethon.tl.functions.channels import GetFullChannelRequest as a
 from telethon.tl.functions.phone import GetGroupCallRequest as b
-from telethon.tl.functions.phone import CreateGroupCallRequest, DiscardGroupCallRequest
+from telethon.tl.functions.phone import (
+    CreateGroupCallRequest,
+    DiscardGroupCallRequest,
+)
 
 from .. import univ
 from ..EquipmentTools import deleted
@@ -54,7 +57,9 @@ async def _(incident):
 
     elif point == "-end":
         try:
-            await univ(DiscardGroupCallRequest(await voice_call_group(incident)))
+            await univ(
+                DiscardGroupCallRequest(await voice_call_group(incident))
+            )
         except BaseException as excp:
             await incident.edit(str(excp))
 

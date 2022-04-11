@@ -130,6 +130,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# dev-swp
+*.swp
+
 # developer-controller (universe)
 alcyoneus
 dev-requirements.txt

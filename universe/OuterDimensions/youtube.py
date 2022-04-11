@@ -40,7 +40,12 @@ async def _(incident):
         exhibition = split(",}{@", options)
         kz = await incident.reply(f"Getting audio: `{str(exhibition[0])}`")
 
-        searching = SearchVideos("{}".format(str(exhibition[0])), offset=1, mode="dict", max_results=1)
+        searching = SearchVideos(
+            "{}".format(str(exhibition[0])),
+            offset=1,
+            mode="dict",
+            max_results=1,
+        )
         links = searching.result()
         get_audio = links["search_result"]
         loots = get_audio[0]["link"]
@@ -76,7 +81,9 @@ async def _(incident):
             if audio_duration > 90:
                 megazine = "90"
                 incident.edit(
-                    "Audio longer than `{} min` aren't allowed.\nMust be < `{} min`".format(audio_duration, megazine)
+                    "Audio longer than `{} min` aren't allowed.\nMust be < `{} min`".format(
+                        audio_duration, megazine
+                    )
                 )
                 return False
             download_data = yt_download.extract_info(url, download=True)
@@ -150,7 +157,12 @@ async def _(incident):
         exhibition = split(",@", options)
         kz = await incident.reply(f"Getting video: `{str(exhibition[0])}`")
 
-        searching = SearchVideos("{}".format(str(exhibition[0])), offset=1, mode="dict", max_results=1)
+        searching = SearchVideos(
+            "{}".format(str(exhibition[0])),
+            offset=1,
+            mode="dict",
+            max_results=1,
+        )
         links = searching.result()
         get_video = links["search_result"]
         loots = get_video[0]["link"]
@@ -166,7 +178,9 @@ async def _(incident):
             "prefer_ffmpeg": True,
             "geo_bypass": True,
             "nocheckcertificate": True,
-            "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
+            "postprocessors": [
+                {"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}
+            ],
             "outtmpl": "%(id)s.mp4",
             "logtostderr": False,
             "quiet": True,
@@ -179,7 +193,9 @@ async def _(incident):
             if video_duration > 90:
                 megazine = "90"
                 incident.edit(
-                    "Video longer than `{} min` aren't allowed.\nMust be < `{} min`".format(video_duration, megazine)
+                    "Video longer than `{} min` aren't allowed.\nMust be < `{} min`".format(
+                        video_duration, megazine
+                    )
                 )
                 return False
             download_data = yt_download.extract_info(url, download=True)

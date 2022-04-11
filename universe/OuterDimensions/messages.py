@@ -15,8 +15,8 @@ category = "service"
 
 
 @univ.universe_cloud(
-    pattern="del",
-    command=("del <reply messages>", category),
+    pattern="(del|Del|delete)",
+    command=("del|Del|delete <reply messages>", category),
 )
 async def _(incident):
     typo_no_reply = incident.pattern_match.group(0)

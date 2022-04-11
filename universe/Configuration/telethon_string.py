@@ -12,7 +12,11 @@ from os import getenv as then_get
 from telethon.sessions import StringSession
 from dotenv import find_dotenv, load_dotenv
 from telethon.sync import TelegramClient
-from telethon.errors import PhoneCodeInvalidError, SessionPasswordNeededError, FloodError
+from telethon.errors import (
+    PhoneCodeInvalidError,
+    SessionPasswordNeededError,
+    FloodError,
+)
 
 load_dotenv(find_dotenv("string.env"))
 
@@ -54,15 +58,17 @@ FlyMeToTheMoon = True
 
 while FlyMeToTheMoon:
     try:
-        with TelegramClient(StringSession(), api_id=api_id, api_hash=api_hash).start(
-            phone=phone_number
-        ) as StartUniverse:
+        with TelegramClient(
+            StringSession(), api_id=api_id, api_hash=api_hash
+        ).start(phone=phone_number) as StartUniverse:
             StartUniverse.send_code_request(phone=phone_number)
             print("")
             galaxy = StartUniverse.session.save()
             messages_temp = desc.format(galaxy)
             StartUniverse.send_message("me", messages_temp, parse_mode="html")
-            print("Your Telethon_String value have been sent to ur Telegram <Saved Messages>")
+            print(
+                "Your Telethon_String value have been sent to ur Telegram <Saved Messages>"
+            )
     except BaseException as excp:
         print(excp)
     except ValueError as value:

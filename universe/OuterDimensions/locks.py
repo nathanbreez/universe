@@ -144,10 +144,16 @@ async def _(incident):
             invite_users=invite_users,
             pin_messages=pin_messages,
         )
-        await incident.client(EditChatDefaultBannedRightsRequest(peer=chat_target, banned_rights=here_comes_the_sun))
+        await incident.client(
+            EditChatDefaultBannedRightsRequest(
+                peer=chat_target, banned_rights=here_comes_the_sun
+            )
+        )
 
     else:
-        return await incident.edit(f"Run Command ›_\n\n**Example:**\n`{p}lock -all` : to lock all.")
+        return await incident.edit(
+            f"Run Command ›_\n\n**Example:**\n`{p}lock -all` : to lock all."
+        )
     try:
         await eor(incident, f"{type} for this chat.")
     except BaseException as excp:
@@ -212,10 +218,16 @@ async def _(incident):
             invite_users=invite_users,
             pin_messages=pin_messages,
         )
-        await incident.client(EditChatDefaultBannedRightsRequest(peer=chat_target, banned_rights=comes))
+        await incident.client(
+            EditChatDefaultBannedRightsRequest(
+                peer=chat_target, banned_rights=comes
+            )
+        )
 
     else:
-        return await incident.edit(f"Run Command ›_\n\n**Example:**\n`{p}unlock -all` : to unlock all.")
+        return await incident.edit(
+            f"Run Command ›_\n\n**Example:**\n`{p}unlock -all` : to unlock all."
+        )
     try:
         await eor(incident, f"{type} for this chat.")
     except BaseException as excp:

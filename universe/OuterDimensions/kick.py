@@ -14,8 +14,8 @@ category = "admins"
 
 
 @univ.universe_cloud(
-    pattern="kicked(?: |$)(-retards)?(?: |$)(.*)",
-    command=("kicked -retards <reply>", category),
+    pattern="(kicked|kick)(?: |$)(-retards)?(?: |$)(.*)",
+    command=("kick|kicked -retards <reply>", category),
     groups_only=True,
 )
 async def _(incident):
@@ -37,7 +37,8 @@ async def _(incident):
                 await univ.kick_participant(incident.chat_id, userid.id)
             except UserAdminInvalidError:
                 await univ.send_message(
-                    incident.chat_id, "Either you're not an admin or you tried to ban an admin that you didn't promote"
+                    incident.chat_id,
+                    "Either you're not an admin or you tried to ban an admin that you didn't promote",
                 )
     else:
         return False

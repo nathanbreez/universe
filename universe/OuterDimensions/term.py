@@ -86,9 +86,13 @@ async def _(incident):
                     with StringIO(byts_str.decode("utf-8")) as conv:
                         schdl = conv.read()
                         languag = "auto"
-                        cb_options = CarbonOptions(code=schdl, language=languag)
+                        cb_options = CarbonOptions(
+                            code=schdl, language=languag
+                        )
                         cb = Carbon()
-                        img = Rotation.run_until_complete(cb.generate(cb_options))
+                        img = Rotation.run_until_complete(
+                            cb.generate(cb_options)
+                        )
                         Rotation.run_until_complete(img.save("bash"))
                         bs = "bash.png"
                         await univ.send_file(

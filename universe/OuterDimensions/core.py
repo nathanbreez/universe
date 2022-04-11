@@ -27,7 +27,10 @@ i = MultiVerse.Trigger
     command=("repository", category),
 )
 async def _(incident):
-    await etd(incident, "Click [Here](https://github.com/unknownkz/universe) to open source code.")
+    await etd(
+        incident,
+        "Click [Here](https://github.com/unknownkz/universe) to open source code.",
+    )
     await deleted(incident)
 
 
@@ -110,7 +113,9 @@ async def _(incident):
 async def _(incident):
     nart = incident.chat_id
     xx = await incident.reply("`Getting...`")
-    x, y = await RunningCommand("neofetch|sed 's/\x1B\\[[0-9;\\?]*[a-zA-Z]//g' >> neofetch.txt")
+    x, y = await RunningCommand(
+        "neofetch|sed 's/\x1B\\[[0-9;\\?]*[a-zA-Z]//g' >> neofetch.txt"
+    )
     fx = "neofetch.txt"
     with open(fx, "r") as nf:
         code = (nf.read()).replace("\n\n", "")

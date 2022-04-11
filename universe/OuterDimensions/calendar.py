@@ -70,7 +70,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -80,7 +82,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -90,7 +94,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -100,7 +106,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -110,7 +118,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -120,7 +130,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -130,7 +142,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -140,7 +154,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -150,7 +166,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -160,7 +178,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -170,7 +190,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 
@@ -180,7 +202,9 @@ async def _(incident):
         ca = month(ye, mo, 2, 1)
         da = datetime.now(tz).strftime("Date : %d/%m/%Y\nTime : %I:%M %p")
         date_and_time = (
-            f"<strong><i>The month you requested:</i></strong>\n\n" f"<code>{ca}</code>\n" f"Now\n<code>{da}</code>"
+            f"<strong><i>The month you requested:</i></strong>\n\n"
+            f"<code>{ca}</code>\n"
+            f"Now\n<code>{da}</code>"
         )
         await incident.reply(date_and_time, parse_mode="html", silent=True)
 

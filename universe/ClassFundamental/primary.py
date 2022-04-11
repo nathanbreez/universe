@@ -37,7 +37,12 @@ from ..UniverseLogger import tz
 from ..UniverseLogger import UniverseLogger as UL
 from ..EquipmentTools import etd, tf, dn, mtt, eor, RunningCommand
 from ..Configuration import MultiVerse
-from .globals import Reloaded_Command, Information_OuterDimensions, Information_Group, Information_Command
+from .globals import (
+    Reloaded_Command,
+    Information_OuterDimensions,
+    Information_Group,
+    Information_Command,
+)
 
 Rotation = All_Star()
 
@@ -63,7 +68,9 @@ class NewMessage(events.NewMessage):
         if not checker:
             return
 
-        if self.require_admin and not isinstance(incident.chat_id, types.PeerUser):
+        if self.require_admin and not isinstance(
+            incident.chat_id, types.PeerUser
+        ):
             is_creator = False
             is_admin = False
             creator = hasattr(incident.chat, "creator")
@@ -77,7 +84,11 @@ class NewMessage(events.NewMessage):
 
             if self.incoming:
                 try:
-                    p = Rotation.create_task(incident.client.get_permissions(incident.chat_id, incident.sender_id))
+                    p = Rotation.create_task(
+                        incident.client.get_permissions(
+                            incident.chat_id, incident.sender_id
+                        )
+                    )
                     participant = p.participant
                 except Exception:
                     participant = None
@@ -107,7 +118,11 @@ class MessageEdited(NewMessage):
         if isinstance(update, types.UpdateEditMessage):
             return cls.Event(update.message)
         if isinstance(update, types.UpdateEditChannelMessage):
-            if update.message.edit_date and update.message.is_channel and not update.message.is_group:
+            if (
+                update.message.edit_date
+                and update.message.is_channel
+                and not update.message.is_group
+            ):
                 return
             return cls.Event(update.message)
 
@@ -127,7 +142,9 @@ class StartUniverse(McQ):
         senders: bool = None,
         **kwargs,
     ) -> callable:
-        kwargs["func"] = kwargs.get("func", lambda anonym: anonym.via_bot_id is None)
+        kwargs["func"] = kwargs.get(
+            "func", lambda anonym: anonym.via_bot_id is None
+        )
         kwargs["blacklist_chats"] = kwargs.get("blacklist_chats", False)
         kwargs["forwards"] = kwargs.get("forwards", False)
         stack = inspect.stack()
@@ -147,9 +164,13 @@ class StartUniverse(McQ):
 
         try:
             if command[0] not in Information_OuterDimensions[outer_dimensions]:
-                Information_OuterDimensions[outer_dimensions].append(command[0])
+                Information_OuterDimensions[outer_dimensions].append(
+                    command[0]
+                )
         except BaseException:
-            Information_OuterDimensions.update({outer_dimensions: [command[0]]})
+            Information_OuterDimensions.update(
+                {outer_dimensions: [command[0]]}
+            )
 
         make_sense = True if senders else False
         if pattern is not None:
@@ -160,10 +181,15 @@ class StartUniverse(McQ):
             async def wrapper(check):
                 chat = check.chat
                 chat_id = check.chat_id or check.from_id
+
                 if groups_only and not check.is_group:
                     return await etd(check, "Sorry this is not a Group.")
+
                 if private_only and not check.is_private:
-                    return await etd(check, "Sorry, this is not a Personal Chat.")
+                    return await etd(
+                        check, "Sorry, this is not a Personal Chat."
+                    )
+
                 try:
                     await func(check)
                 except StopPropagation:
@@ -172,7 +198,9 @@ class StartUniverse(McQ):
                 except FloodWaitError as excp:
                     FLOOD_WAIT = excp.seconds
                     FLOOD_WAIT_HUMAN = tf((FLOOD_WAIT + 5) * 1000)
-                    UL.error(f"A Flood Wait of {FLOOD_WAIT} and Sleep for {FLOOD_WAIT_HUMAN} !!")
+                    UL.error(
+                        f"A Flood Wait of {FLOOD_WAIT} and Sleep for {FLOOD_WAIT_HUMAN} !!"
+                    )
                     with suppress(BaseException):
                         await check.delete()
                     await sleep(FLOOD_WAIT + 5)
@@ -193,12 +221,16 @@ class StartUniverse(McQ):
                 ):
                     pass
                 except AuthKeyDuplicatedError:
-                    UL.error("Your Telethon_String has been expired.Please create new again.")
+                    UL.error(
+                        "Your Telethon_String has been expired.Please create new again."
+                    )
                     sys.exit(0)
                 except Exception as excp:
                     UL.exception(f"Message: {excp}")
                     if not disable_errors:
-                        date = datetime.now(tz).strftime("%d/%m/%Y %I:%M:%S %p")
+                        date = datetime.now(tz).strftime(
+                            "%d/%m/%Y %I:%M:%S %p"
+                        )
                         group_name = dn(chat)
                         format_text = "==== ⚠️ Attention ⚠️ ===="
                         format_text += "\nUniverse is having Problems."
@@ -211,10 +243,14 @@ class StartUniverse(McQ):
                         format_text += "\n\n🚨 Replied: " + str(check.is_reply)
                         format_text += "\n🚨 Event Trigger: " + str(check.text)
                         format_text += "\n🚨 Traceback: " + str(fmex())
-                        format_text += "\n🚨 Error text: " + str(sys.exc_info()[1])
+                        format_text += "\n🚨 Error text: " + str(
+                            sys.exc_info()[1]
+                        )
                         format_text += "\n\n====== History Commit ======"
                         format_text += "\n\nLast 5 Commit: \n"
-                        stdout, stderr = await RunningCommand('git log --pretty=format:"%an: %s" -5')
+                        stdout, stderr = await RunningCommand(
+                            'git log --pretty=format:"%an: %s" -5'
+                        )
                         result = stdout + stderr
                         format_text += result + "`"
 
@@ -246,8 +282,12 @@ class StartUniverse(McQ):
                 pers = instance(pattern, "\\" + high_and_low)
 
                 if command is not None:
-                    if command[0] in Reloaded_Command and wrapper in Reloaded_Command[command[0]]:
+                    if (
+                        command[0] in Reloaded_Command
+                        and wrapper in Reloaded_Command[command[0]]
+                    ):
                         return None
+
                     try:
                         Reloaded_Command[command[0]].append(wrapper)
                     except BaseException:
@@ -264,14 +304,19 @@ class StartUniverse(McQ):
                 )
 
             else:
-                if outer_dimensions in Reloaded_Command and func in Reloaded_Command[outer_dimensions]:
+                if (
+                    outer_dimensions in Reloaded_Command
+                    and func in Reloaded_Command[outer_dimensions]
+                ):
                     return None
                 try:
                     Reloaded_Command[outer_dimensions].append(func)
                 except BaseException:
                     Reloaded_Command.update({outer_dimensions: [func]})
                 if edited:
-                    univ.add_event_handler(func, events.MessageEdited(**kwargs))
+                    univ.add_event_handler(
+                        func, events.MessageEdited(**kwargs)
+                    )
                 univ.add_event_handler(func, events.NewMessage(**kwargs))
 
             return wrapper

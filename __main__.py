@@ -26,8 +26,15 @@ start()
 async def pushkov():
     try:
         OuterDimensions = outer_dimensions()
-        [import_outer_dimensions("universe.OuterDimensions." + galaxy) for galaxy in OuterDimensions]
-        UL.info("Get hold of {} : {}\n✅ File submission successful.".format(len(OuterDimensions), str(OuterDimensions)))
+        [
+            import_outer_dimensions("universe.OuterDimensions." + galaxy)
+            for galaxy in OuterDimensions
+        ]
+        UL.info(
+            "Get hold of {} : {}\n✅ File submission successful.".format(
+                len(OuterDimensions), str(OuterDimensions)
+            )
+        )
     except (ModuleNotFoundError, ImportError) as excp:
         UL.error(f"[Dimensions] Error : {excp}")
         exit(1)
@@ -52,8 +59,14 @@ async def main():
 
 async def whatever():
     for signal_enum in [SIGINT, SIGTERM, SIGPIPE]:
-        Rotation.add_signal_handler(signal_enum, BaseEventLoop.run_until_complete(Rotation, main()).stop)
-        Rotation.add_signal_handler(signal_enum, BaseEventLoop.run_until_complete(Rotation, pushkov()).stop)
+        Rotation.add_signal_handler(
+            signal_enum,
+            BaseEventLoop.run_until_complete(Rotation, main()).stop,
+        )
+        Rotation.add_signal_handler(
+            signal_enum,
+            BaseEventLoop.run_until_complete(Rotation, pushkov()).stop,
+        )
     await sleep(5)
 
 

@@ -1,11 +1,11 @@
 ### Configuration & Environment
 > Note :
->> for sample-string.env, you just need to rename it or create a new one to be string.env and save it.
->>> for sample-configuration.py u must be create new or copy file. Don't rename file!!!
+>> for sample-configuration.py u must be create new or copy file. Don't rename file!!!
+>>> create file ›› configuration.py ‹‹
 
 ### For Description
 > Note :
->> For details, have a look and read at sample-string.env and sample-configuration.py, we have provided descriptions on each of the environments and configuration.
+>> For details, have a look and read at sample-configuration.py, we have provided descriptions on each of the environments and configuration.
 
 ### Get Telehon String ›_
 
@@ -16,11 +16,11 @@ git clone https://github.com/unknownkz/universe
 # change directory
 cd universe/universe/Configuration
 
-# execute program [ to get string ]
-python3 -m telethon_string
+# execute program [ to get string sessions ]
+python3 -m GenString
 
-# Don't forget to fill your api id, api hash and phone number in string.env
-# see sample-string.env
+# Don't forget to fill your api id, api hash and phone number in configuration.py
+# see sample-configuration.py
 ```
 
 ### Example Filling Configuration
@@ -31,6 +31,10 @@ python3 -m telethon_string
 # get it at my.telegram.org | api development tools | then fill
 Api_ID = int(then_get("Api_ID", "182838181")) # <- fill in here " "
 Api_Hash = str(then_get("Api_Hash", "57c7822bw02dE")) # <- fill in here " "
+# Mobile Phone Number... Don't forget your country code
+# this is for your telethon string in local data, so you don't refill it again
+# later you just need a verification code from telegram
+MobilePhoneNumber = str(then_get("MobilePhoneNumber", "+621234566")) # <- fill in here
 
 ### Logger Information
 # add @MissRose_Bot to ur chat and write /id to get ur chat id

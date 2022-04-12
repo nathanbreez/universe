@@ -8,9 +8,7 @@
 
 from sys import exit
 from pathlib import Path
-from os import getenv as then_get
 from telethon.sessions import StringSession
-from dotenv import find_dotenv, load_dotenv
 from telethon.sync import TelegramClient
 from telethon.errors import (
     PhoneCodeInvalidError,
@@ -18,15 +16,20 @@ from telethon.errors import (
     FloodError,
 )
 
-load_dotenv(find_dotenv("string.env"))
 
 StringCheck: Path = Path(__file__).parent.parent
 
-dirs = ["/root/universe/universe/Configuration/string.env"]
+dirs = ["/root/universe/universe/Configuration/configuration.py"]
 for _ in dirs:
     if not (StringCheck / _).exists():
-        print("| [WARNING] | string.env not found !!")
+        print("| [WARNING] | File configuration.py not found !!")
         exit(1)
+
+try:
+    from configuration import UniverseConfiguration as config
+
+except ImportError:
+    exit(1)
 
 
 desc = """
@@ -49,9 +52,9 @@ print("""Maintainer : @xelyourslurred <unknownkz@outlook.co.id>""")
 print("")
 print("")
 
-api_id = int(then_get("Api_ID"))
-api_hash = str(then_get("Api_Hash"))
-phone_number = then_get("MobilePhoneNumber")
+api_id = config.Api_ID
+api_hash = config.Api_Hash
+phone_number = config.MobilePhoneNumber
 
 FlyMeToTheMoon = True
 
@@ -67,7 +70,7 @@ while FlyMeToTheMoon:
             messages_temp = desc.format(galaxy)
             StartUniverse.send_message("me", messages_temp, parse_mode="html")
             print(
-                "Your Telethon_String value have been sent to ur Telegram <Saved Messages>"
+               "Your Telethon_String value have been sent to ur Telegram <Saved Messages>"
             )
     except BaseException as excp:
         print(excp)

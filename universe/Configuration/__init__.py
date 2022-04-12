@@ -14,7 +14,7 @@ Checker: Path = Path(__file__).parent.parent
 dirs = ["/root/universe/universe/Configuration/configuration.py"]
 for _ in dirs:
     if not (Checker / _).exists():
-        print("| [WARNING] | configuration.py not found !!")
+        print("| [WARNING] | File configuration.py not found !!")
         exit(1)
 
 try:

@@ -17,6 +17,10 @@ class UniverseConfiguration:
     # get it at my.telegram.org | api development tools | then fill
     Api_ID = int(then_get("Api_ID", ""))
     Api_Hash = str(then_get("Api_Hash", ""))
+    # Mobile Phone Number... Don't forget your country code
+    # this is for your telethon string in local data, so you don't refill it again
+    # later you just need a verification code from telegram
+    MobilePhoneNumber = str(then_get("MobilePhoneNumber", "+62"))
 
     # look in README.md for a description of how to get the Telethon String.
     Telethon_String = str(then_get("Telethon_String", ""))

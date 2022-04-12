@@ -1,11 +1,11 @@
-### Configuration & Environment
+### Configuration
 > Note :
 >> for sample-configuration.py u must be create new or copy file. Don't rename file!!!
 >>> create file ›› configuration.py ‹‹
 
 ### For Description
 > Note :
->> For details, have a look and read at sample-configuration.py, we have provided descriptions on each of the environments and configuration.
+>> For details, have a look and read at sample-configuration.py, we have provided descriptions on each of the configuration.
 
 ### Get Telehon String ›_
 

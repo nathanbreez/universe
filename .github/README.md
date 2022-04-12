@@ -14,7 +14,7 @@
 [![run](https://telegra.ph/file/cfea6515c7fce79d09a3d.jpg)](https://telegra.ph/file/cfea6515c7fce79d09a3d.jpg)
 
 
-#### Configuration & Environments
+#### Configuration ( Config )
 
 * [Click Here](https://github.com/unknownkz/universe/tree/main/universe/Configuration)
 
